@@ -1,0 +1,19 @@
+.prueba p {
+    font-size: 20px;
+}
+
+.ibox-title {
+    /* border-width: 0!important; */
+}
+
+.btn-cancelar {
+    color: #fff;
+    background-color: red;
+    border-color: red;
+}
+
+.imagen-perfil img {
+    background-size: cover;
+    box-shadow: gray;
+    border-radius: 113px;
+}
