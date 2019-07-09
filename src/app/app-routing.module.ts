@@ -1,10 +1,10 @@
 import { NgModule } from '@angular/core';
 import { Routes, RouterModule } from '@angular/router';
-import { NavbarComponent } from './componentes/shared/navbar/navbar.component';
-import { LoginComponent } from './componentes/shared/login/login.component';
-import { RegistroComponent } from './componentes/shared/registro/registro.component';
-import { ForgotPasswordComponent } from './componentes/shared/forgot-password/forgot-password.component';
-import { PerfilComponent } from './componentes/shared/perfil/perfil.component';
+import { NavbarComponent } from './componentes/navbar/navbar.component';
+import { LoginComponent } from './componentes/login/login.component';
+import { RegistroComponent } from './componentes/registro/registro.component';
+import { ForgotPasswordComponent } from './componentes/forgot-password/forgot-password.component';
+import { PerfilComponent } from './componentes/perfil/perfil.component';
 
 const routes: Routes = [
   { path:'home', component: NavbarComponent },

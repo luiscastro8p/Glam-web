@@ -1,4 +1,5 @@
 import { Component, OnInit } from '@angular/core';
+import { Users } from '../../shared/interfaces/users';
 
 @Component({
   selector: 'app-perfil',
@@ -7,9 +8,20 @@ import { Component, OnInit } from '@angular/core';
 })
 export class PerfilComponent implements OnInit {
 
+  perfil: Users [] = [
+    {
+     nombre:'luis ',
+     apellido:'castro',
+     telefono: 2,
+     
+    },
+  ]
+
   constructor() { }
 
   ngOnInit() {
   }
+
+
 
 }

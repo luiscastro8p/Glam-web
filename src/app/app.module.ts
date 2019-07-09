@@ -1,18 +1,18 @@
 import { BrowserModule } from '@angular/platform-browser';
 import { NgModule } from '@angular/core';
+import { FormsModule } from '@angular/forms';
 
 
 //servicios
 //componentes
 import { AppRoutingModule } from './app-routing.module';
 import { AppComponent } from './app.component';
-import { LoginComponent } from './componentes/shared/login/login.component';
-import { NavbarComponent } from './componentes/shared/navbar/navbar.component';
-import { RegistroComponent } from './componentes/shared/registro/registro.component';
-import { ForgotPasswordComponent } from './componentes/shared/forgot-password/forgot-password.component';
-import { PerfilComponent } from './componentes/shared/perfil/perfil.component';
-
-
+import { LoginComponent } from './componentes/login/login.component';
+import { NavbarComponent } from './componentes/navbar/navbar.component';
+import { RegistroComponent } from './componentes/registro/registro.component';
+import { ForgotPasswordComponent } from './componentes/forgot-password/forgot-password.component';
+import { PerfilComponent } from './componentes/perfil/perfil.component';
+import { HttpClientModule } from '@angular/common/http'  
 @NgModule({
   declarations: [
     AppComponent,
@@ -24,7 +24,9 @@ import { PerfilComponent } from './componentes/shared/perfil/perfil.component';
   ],
   imports: [
     BrowserModule,
-     AppRoutingModule
+     AppRoutingModule,
+     FormsModule,
+     HttpClientModule
   ],
   providers: [],
   bootstrap: [AppComponent]

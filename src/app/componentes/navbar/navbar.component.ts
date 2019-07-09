@@ -9,6 +9,8 @@ import { Router } from '@angular/router';
 })
 export class NavbarComponent implements OnInit {
 
+    mostrar: false;
+    
   constructor(private _router: Router) { }
 
   ngOnInit() {
