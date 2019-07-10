@@ -5,9 +5,10 @@ import { LoginComponent } from './componentes/login/login.component';
 import { RegistroComponent } from './componentes/registro/registro.component';
 import { ForgotPasswordComponent } from './componentes/forgot-password/forgot-password.component';
 import { PerfilComponent } from './componentes/perfil/perfil.component';
+import { AuthGuard } from './guards/auth.guard';
 
 const routes: Routes = [
-  { path:'home', component: NavbarComponent },
+  { path:'home', component: NavbarComponent, canActivate: [ AuthGuard ] },
   { path:'login', component: LoginComponent },
   { path:'registro', component: RegistroComponent },
   { path:'olvidaste-contraseña', component: ForgotPasswordComponent },

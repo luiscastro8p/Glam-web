@@ -21,7 +21,7 @@
                 <input type="password" [(ngModel)]="usuario.password" name="password" class="form-control" placeholder="Password" required minlength="6">
             </div>
             <div class="form-group">
-                <div class="checkbox i-checks"><label> <input type="checkbox"><i></i> Agree the terms and policy </label></div>
+                <input [(ngModel)]="recordarme" class="input-checkbox100" id="ckb1" type="checkbox" name="remember-me"><span class="label-checkbox100" for="ckb1">Recordar mi usuario</span>
             </div>
             <button type="submit" class="btn btn-primary block full-width m-b">Register</button>
 
