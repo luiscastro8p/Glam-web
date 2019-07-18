@@ -12,7 +12,9 @@ import { NavbarComponent } from './componentes/navbar/navbar.component';
 import { RegistroComponent } from './componentes/registro/registro.component';
 import { ForgotPasswordComponent } from './componentes/forgot-password/forgot-password.component';
 import { PerfilComponent } from './componentes/perfil/perfil.component';
-import { HttpClientModule } from '@angular/common/http'  
+import { HttpClientModule } from '@angular/common/http';
+import { ListaUsuariosComponent } from './componentes/Lista-Usuarios/lista-usuarios.component';
+
 @NgModule({
   declarations: [
     AppComponent,
@@ -20,7 +22,8 @@ import { HttpClientModule } from '@angular/common/http'
     NavbarComponent,
     RegistroComponent,
     ForgotPasswordComponent,
-    PerfilComponent
+    PerfilComponent,
+    ListaUsuariosComponent
   ],
   imports: [
     BrowserModule,
