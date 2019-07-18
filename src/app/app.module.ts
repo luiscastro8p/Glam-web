@@ -14,6 +14,7 @@ import { ForgotPasswordComponent } from './componentes/forgot-password/forgot-pa
 import { PerfilComponent } from './componentes/perfil/perfil.component';
 import { HttpClientModule } from '@angular/common/http';
 import { ListaUsuariosComponent } from './componentes/Lista-Usuarios/lista-usuarios.component';
+import { RegistroUsuarioComponent } from './componentes/registro-usuario/registro-usuario.component';
 
 @NgModule({
   declarations: [
@@ -23,7 +24,8 @@ import { ListaUsuariosComponent } from './componentes/Lista-Usuarios/lista-usuar
     RegistroComponent,
     ForgotPasswordComponent,
     PerfilComponent,
-    ListaUsuariosComponent
+    ListaUsuariosComponent,
+    RegistroUsuarioComponent
   ],
   imports: [
     BrowserModule,

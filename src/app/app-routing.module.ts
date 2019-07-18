@@ -7,6 +7,7 @@ import { ForgotPasswordComponent } from './componentes/forgot-password/forgot-pa
 import { PerfilComponent } from './componentes/perfil/perfil.component';
 import { AuthGuard } from './guards/auth.guard';
 import { ListaUsuariosComponent } from './componentes/Lista-Usuarios/lista-usuarios.component';
+import { RegistroUsuarioComponent } from './componentes/registro-usuario/registro-usuario.component';
 
 
 const routes: Routes = [
@@ -16,7 +17,9 @@ const routes: Routes = [
   { path:'olvidaste-contraseña', component: ForgotPasswordComponent },
   { path:'perfil', component: PerfilComponent },
   { path:'lista-usuario', component: ListaUsuariosComponent },
+  { path:'registro-usuario', component: RegistroUsuarioComponent },
   { path: '**', pathMatch: 'full', redirectTo: 'home' }
+
 ];
 
 @NgModule({
