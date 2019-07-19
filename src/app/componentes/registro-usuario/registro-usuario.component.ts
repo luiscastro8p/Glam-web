@@ -22,7 +22,6 @@ export class RegistroUsuarioComponent implements OnInit {
   guardar( forma:NgForm ){
     console.log("Formulario posteado");
     console.log(forma);
-    
-    
+        
   }
 }
