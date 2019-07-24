@@ -1,36 +1,57 @@
-<div class="container main-container mt-5 ibox-content">
-
+<div class="container mt-3  mb-3 animated fadeInRight">
+    <div class="row text-right">
+        <div class="col">
+            <button routerLink="/lista-usuario" class="btn btn-sm btn-danger" type="submit"><i class="fas fa-arrow-left"></i> Regresar
+    </button>
+        </div>
+    </div>
+</div>
+<div class="container mt-3 ibox-content animated fadeIn faster">
     <h4>Registro usuario</h4>
     <hr>
+
     <form (ngSubmit)="guardar(forma)" #forma="ngForm" novalidate="">
-        <div class="form-group row">
+        <div class="form-group row has-danger">
             <label for="inputEmail3" class="col-sm-2 col-form-label">Email</label>
             <div class="col-sm-10">
-                <input ngModel name="email" type="email" class="form-control" id="inputEmail3" placeholder="Email" pattern="[a-z0-9._%+-]+@[a-z0-9.-]+\.[a-z]{2,3}$" required>
+                <input ngModel #email="ngModel" name="email" type="email" class="form-control" id="inputEmail3" placeholder="Email" pattern="[a-z0-9._%+-]+@[a-z0-9.-]+\.[a-z]{2,3}$" [(ngModel)]="registro.email" required>
+                <div class="form-control-feedback" *ngIf="email.errors?.required">
+                    Este campo es requerido
+                </div>
             </div>
         </div>
         <div class="form-group row">
             <label for="inputEmail3" class="col-sm-2 col-form-label">Nombre</label>
             <div class="col-sm-10">
-                <input ngModel name="nombre" type="text" class="form-control" id="inputEmail3" placeholder="Nombre" required>
-
+                <input ngModel name="nombre" type="text" class="form-control" id="inputEmail3" placeholder="Nombre" minlength="10" #nombre="ngModel" [(ngModel)]="registro.nombre" required>
+                <div *ngIf="nombre.errors?.required">
+                    Este campo es requerido
+                </div>
+                <div *ngIf="nombre.errors?.minlength">
+                    Por lo menos {{ nombre.errors.minlength.requiredLength }} caracteres
+                </div>
             </div>
         </div>
         <div class="form-group row">
             <label class="col-sm-2 col-form-label">Fecha</label>
             <div class="col-sm-10">
-                <input ngModel name="fecha" type="date" class="form-control" id="inputEmail3">
-
+                <input #fecha ngModel name="fecha" type="date" class="form-control" id="inputEmail3" [(ngModel)]="registro.fecha" required>
+                <div *ngIf="fecha.errors?.required">
+                    Este campo es requerido
+                </div>
             </div>
         </div>
         <div class="form-group row ">
             <label for="inputEmail3" class="col-sm-2 col-form-label">Tipo</label>
             <div class="col-sm-10">
-                <select ngModel name="Tipo" id="inputState" class="form-control">
-              <option selected>Selecciona el tipo de usuario</option>
+                <select #Tipo="ngModel" ngModel name="tipo" id="inputState" class="form-control" [(ngModel)]="registro.tipo" required>
+              <option selected disabled >Selecciona el tipo de usuario</option>
               <option>Administrador</option>
               <option>Cliente</option>
             </select>
+                <div *ngIf="Tipo.errors?.required">
+                    Este campo es requerido
+                </div>
             </div>
         </div>
         <fieldset class="form-group">
@@ -40,7 +61,7 @@
                 <div class="col-sm-10">
                     <div class="">
                         <label class="switch ">
-                             <input  ngModel type="checkbox" name="Status" id="Activo" value="Activo" checked>
+                             <input  ngModel type="checkbox" name="status" id="Activo" value="Activo" [(ngModel)]="registro.status" checked disabled >
                                 <span class="slider round">
                                 </span>
                        </label>
@@ -65,7 +86,7 @@
         <div class="form-group row">
             <label class="col-2 col-form-label">&nbsp;</label>
             <div class="input-group col-md-8">
-                <button type="submit" class="btn btn-primary">
+                <button [disabled]="!forma.valid" type="submit" class="btn btn-primary">
                     Guardar
                   </button>
             </div>

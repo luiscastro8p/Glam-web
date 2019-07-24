@@ -1,5 +1,6 @@
 import { Component, OnInit } from '@angular/core';
 import { NgForm } from '@angular/forms'
+import { RegistroModel } from '../../models/registro-Model';
 
 @Component({
   selector: 'app-registro-usuario',
@@ -9,19 +10,19 @@ import { NgForm } from '@angular/forms'
 export class RegistroUsuarioComponent implements OnInit {
 
 
-  usuario:Object = {
-    nombre:"null",
-    tipo:"null",
-    email: "null"
-  }
+   
+   registro: RegistroModel = new RegistroModel();  
+
   constructor() { }
 
   ngOnInit() {
   }
   
   guardar( forma:NgForm ){
-    console.log("Formulario posteado");
+    
     console.log(forma);
+    console.log(this.registro);
+    
         
   }
 }
