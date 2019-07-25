@@ -17,7 +17,7 @@ const routes: Routes = [
   { path:'olvidaste-contraseña', component: ForgotPasswordComponent },
   { path:'perfil', component: PerfilComponent },
   { path:'lista-usuario', component: ListaUsuariosComponent },
-  { path:'registro-usuario', component: RegistroUsuarioComponent },
+  { path:'registro-usuario/:id', component: RegistroUsuarioComponent },
   { path: '**', pathMatch: 'full', redirectTo: 'home' }
 
 ];

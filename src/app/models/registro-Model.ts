@@ -1,4 +1,5 @@
 export class RegistroModel {
+   id:string;
    email:string;
    nombre:string;
    fecha:string;

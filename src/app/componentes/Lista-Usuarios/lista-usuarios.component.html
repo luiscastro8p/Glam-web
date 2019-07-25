@@ -17,15 +17,7 @@
 
                         <div class="ibox-tools">
 
-                            <a class="dropdown-toggle" data-toggle="dropdown" href="#">
-                                <i class="fa fa-wrench"></i>
-                            </a>
-                            <ul class="dropdown-menu dropdown-user">
-                                <li><a href="#" class="dropdown-item">Config option 1</a>
-                                </li>
-                                <li><a href="#" class="dropdown-item">Config option 2</a>
-                                </li>
-                            </ul>
+
                             <a class="close-link">
                                 <i class="fa fa-times"></i>
                             </a>
@@ -38,19 +30,32 @@
                                     <th scope="col">#</th>
                                     <th scope="col">Email</th>
                                     <th scope="col">Nombre</th>
-                                    <th scope="col">Fecha</th>
+                                    <th scope="col">status</th>
+                                    <th scope="col">fecha</th>
                                     <th scope="col">Tipo</th>
-                                    <th scope="col">Status</th>
+                                    <th scope="col"> Acciones </th>
                                 </tr>
                             </thead>
                             <tbody>
-                                <tr>
-                                    <th scope="row">1</th>
-                                    <td>Mark</td>
-                                    <td>Otto</td>
-                                    <td>@mdo</td>
-                                    <td>Mark</td>
-                                    <td>Otto</td>
+                                <tr *ngFor="let usuario of usuarios; let i = index ">
+                                    <th scope="row">{{ i + 1 }}</th>
+                                    <td>{{usuario.email}}</td>
+                                    <td>{{usuario.nombre}}</td>
+                                    <td>
+                                        <label *ngIf="usuario.status" class="badge badge-primary">Activo</label>
+                                        <label *ngIf="!usuario.status" class="badge badge-danger">Inactivo</label>
+
+                                    </td>
+                                    <td>{{usuario.fecha}}</td>
+                                    <td>{{usuario.tipo}}</td>
+                                    <th>
+                                        <a class="btn btn-info mr-1" [routerLink]="['/registro-usuario',usuario.id]">
+                                            <i class="fa fa-pen"></i>
+                                        </a>
+                                        <button class="btn btn-danger mr-1">
+                                            <i class="fa fa-trash"></i>
+                                        </button>
+                                    </th>
                                 </tr>
                             </tbody>
                         </table>
@@ -78,4 +83,3 @@
                 </div>
             </div>
         </div>
-    </div>
