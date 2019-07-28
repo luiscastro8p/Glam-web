@@ -26,7 +26,9 @@ export class RegistroUsuarioComponent implements OnInit {
     
     if( id !== 'nuevo'){
       this.registroService.getUsuarioid( id )
-      .subscribe( resp => {
+      .subscribe( (resp:RegistroModel) => {
+        this.registro = resp;
+        this.registro.id = id;
         console.log(resp);
         
       });
@@ -56,15 +58,15 @@ export class RegistroUsuarioComponent implements OnInit {
 
       if( this.registro.id ){
         peticion = this.registroService.actualizarUsuario( this.registro );
-       
+        
         
       
       }else{
 
         peticion = this.registroService.crearUsuario( this.registro );
-        // .subscribe (resp => {
+        //  .subscribe (resp => {
         // console.log(resp);
-        // this.registro = resp;
+        //  this.registro = resp;
         
       // });
       }
@@ -75,6 +77,8 @@ export class RegistroUsuarioComponent implements OnInit {
           type: "success"
         })
       } )
+      
+      
     
   
   }

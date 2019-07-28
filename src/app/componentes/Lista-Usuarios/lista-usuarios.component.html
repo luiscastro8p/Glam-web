@@ -1,85 +1,76 @@
-<div class="wrapper wrapper-content animated fadeInRight">
-    <div class="container">
-        <div class="row">
-            <div class="container mt-3">
-                <div class="row text-right">
-                    <div class="col">
-                        <button class="btn btn-sm btn-primary float-right " type="submit" routerLink="/registro-usuario"><i class="fas fa-plus"></i> Nuevo
-                </button>
+<div id="wrapper" class="wrapper wrapper-content animated fadeInRight">
+    <div class="row">
+        <div class="col">
+            <button class="btn btn-sm btn-primary float-right " (click)="mostrarRegistro = true" type="submit" routerLink="/registro-usuario/nuevo"><i class="fas fa-plus"></i> Nuevo
+            </button>
+        </div>
+    </div>
+    <div class="main-container ">
+        <div class="row ">
+            <div class="col  mt-3">
+                <div class="ibox-title">
+                    <h5>Listas de usuarios</h5>
+                    <hr>
+                    <div class="ibox-tools">
+                        <a class="close-link">
+                            <i class="fa fa-times"></i>
+                        </a>
                     </div>
-                </div>
-            </div>
-            <div class="col mt-3">
-                <div class="ibox ">
-                    <div class="ibox-title">
-                        <h5>Listas de usuarios</h5>
+                    <table *ngIf="!cargando && usuarios.length > 0" class="table col-12 animated fadeIn faster">
+                        <thead class="thead-light">
+                            <tr>
+                                <th scope="col">#</th>
+                                <th scope="col">Email</th>
+                                <th scope="col">Nombre</th>
+                                <th scope="col">status</th>
+                                <th scope="col">fecha</th>
+                                <th scope="col">Tipo</th>
+                                <th scope="col"> Acciones </th>
+                            </tr>
+                        </thead>
+                        <tbody>
+                            <tr *ngFor="let usuario of usuarios; let i = index ">
+                                <th scope="row">{{ i + 1 }}</th>
+                                <td>{{usuario.email}}</td>
+                                <td>{{usuario.nombre}}</td>
+                                <td>
+                                    <label *ngIf="usuario.status" class="badge badge-primary">Activo</label>
+                                    <label *ngIf="!usuario.status" class="badge badge-danger">Inactivo</label>
 
-
-                        <div class="ibox-tools">
-
-
-                            <a class="close-link">
-                                <i class="fa fa-times"></i>
-                            </a>
-                        </div>
-
-
-                        <table class="table">
-                            <thead class="thead-light">
-                                <tr>
-                                    <th scope="col">#</th>
-                                    <th scope="col">Email</th>
-                                    <th scope="col">Nombre</th>
-                                    <th scope="col">status</th>
-                                    <th scope="col">fecha</th>
-                                    <th scope="col">Tipo</th>
-                                    <th scope="col"> Acciones </th>
-                                </tr>
-                            </thead>
-                            <tbody>
-                                <tr *ngFor="let usuario of usuarios; let i = index ">
-                                    <th scope="row">{{ i + 1 }}</th>
-                                    <td>{{usuario.email}}</td>
-                                    <td>{{usuario.nombre}}</td>
-                                    <td>
-                                        <label *ngIf="usuario.status" class="badge badge-primary">Activo</label>
-                                        <label *ngIf="!usuario.status" class="badge badge-danger">Inactivo</label>
-
-                                    </td>
-                                    <td>{{usuario.fecha}}</td>
-                                    <td>{{usuario.tipo}}</td>
-                                    <th>
-                                        <a class="btn btn-info mr-1" [routerLink]="['/registro-usuario',usuario.id]">
-                                            <i class="fa fa-pen"></i>
-                                        </a>
-                                        <button class="btn btn-danger mr-1">
+                                </td>
+                                <td>{{usuario.fecha}}</td>
+                                <td>{{usuario.tipo}}</td>
+                                <th>
+                                    <a class="btn btn-info mr-1" [routerLink]="['/registro-usuario',usuario.id]">
+                                        <i class="fa fa-pen"></i>
+                                    </a>
+                                    <button class="btn btn-danger mr-1  " (click)="borrarUsuario(usuario, i);">
                                             <i class="fa fa-trash"></i>
                                         </button>
-                                    </th>
-                                </tr>
-                            </tbody>
-                        </table>
-                        <div class="alert alert-warning text-center mt-3">
-                            <h4 class="alert-heading">No hay registros</h4>
-                            <p>
-                                <i class="fa fa-exclamation  fa-2x"></i>
-                            </p>
-                            <p class="mb-0">
-                                Espere por favor
-                            </p>
-                        </div>
-                        <div class="alert alert-info text-center mt-3">
-                            <h4 class="alert-heading">Cargando</h4>
-                            <p>
-                                <i class="fa fa-sync-alt fa-spin fa-2x"></i>
-                            </p>
-                            <p class="mb-0">
-                                Espere por favor
-                            </p>
-                        </div>
-
+                                </th>
+                            </tr>
+                        </tbody>
+                    </table>
+                    <div *ngIf="!cargando && usuarios.length === 0" class=" alert alert-warning text-center mt-3 animated fadeIn faster">
+                        <h4 class="alert-heading">No hay registros</h4>
+                        <p>
+                            <i class="fa fa-exclamation  fa-2x"></i>
+                        </p>
+                        <p class="mb-0">
+                            Espere por favor
+                        </p>
                     </div>
-
+                    <div *ngIf="cargando" class="alert alert-info text-center mt-3 animated fadeIn faster">
+                        <h4 class="alert-heading">Cargando</h4>
+                        <p>
+                            <i class="fa fa-sync-alt fa-spin fa-2x"></i>
+                        </p>
+                        <p class="mb-0">
+                            Espere por favor
+                        </p>
+                    </div>
                 </div>
             </div>
         </div>
+    </div>
+</div>

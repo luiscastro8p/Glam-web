@@ -1,6 +1,7 @@
 import { Component, OnInit } from '@angular/core';
 import { RegistroUsuarioService } from '../../services/registro-usuario.service';
 import { RegistroModel } from '../../models/registro-Model';
+import Swal from 'sweetalert2';
 
 @Component({
   selector: 'app-lista-usuarios',
@@ -9,14 +10,42 @@ import { RegistroModel } from '../../models/registro-Model';
 })
 export class ListaUsuariosComponent implements OnInit {
 
+  mostrarRegistro:boolean = false;
+
   usuarios: RegistroModel[] =[];
+  cargando = false;
+
 
   constructor ( private RegistroUsuarioService: RegistroUsuarioService) { }
 
   ngOnInit() {
+
+    this.cargando = true;
     this.RegistroUsuarioService.getUsuario()
-    .subscribe( resp => this.usuarios = resp);
+    .subscribe( resp => {
+      this.usuarios = resp;
+      this.cargando = false;
+    });
       
+    }
+    borrarUsuario( registro: RegistroModel, i:number){
+
+      Swal.fire({
+        title:'¿Está seguro?',
+        text: ` Esta seguro que desea boorar a ${registro.nombre}`,
+        type:'question',
+        showConfirmButton:true,
+        showCancelButton:true
+      }).then( resp => {
+        if( resp.value){
+
+          this.usuarios.splice( i, 1);
+          this.RegistroUsuarioService.borrarUsuario( registro.id )
+          .subscribe();
+        }
+      })
+
+
     }
   }
 

@@ -4,6 +4,7 @@ import { Router } from '@angular/router';
 
 
 
+
 @Component({
   selector: 'app-navbar',
   templateUrl: './navbar.component.html',
@@ -12,6 +13,10 @@ import { Router } from '@angular/router';
 export class NavbarComponent implements OnInit {
 
     mostrar: false;
+   
+    
+    
+    
     
   constructor( private auth:AuthService,
                 private Router: Router) { }

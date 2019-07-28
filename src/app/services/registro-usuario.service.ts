@@ -1,7 +1,7 @@
 import { Injectable } from '@angular/core';
 import { HttpClient } from '@angular/common/http';
 import { RegistroModel } from '../models/registro-Model';
-import { map } from 'rxjs/operators';
+import { map,delay } from 'rxjs/operators';
 
 
 
@@ -26,6 +26,11 @@ export class RegistroUsuarioService {
           );
     
   }
+
+  borrarUsuario( id:string){
+    return this.http.delete(`${ this.url }/usuarios/${ id }.json`);
+
+  }
   actualizarUsuario( usuario: RegistroModel ){
     
     const usuarioTemp = {
@@ -33,7 +38,7 @@ export class RegistroUsuarioService {
     };
 
     delete usuarioTemp.id;
-    return this.http.put(`${ this.url }/usuarios/${usuario.id} `, usuarioTemp )
+    return this.http.put(`${ this.url }/usuarios/${usuario.id}.json `, usuarioTemp )
   }
 
 
@@ -45,7 +50,8 @@ export class RegistroUsuarioService {
   getUsuario(){
     return this.http.get(`${ this.url }/usuarios.json`)
     .pipe(
-      map( resp =>  this.crearArreglo(resp) )
+      map( resp =>  this.crearArreglo(resp) ),
+      delay(500)
     );
   }
 
