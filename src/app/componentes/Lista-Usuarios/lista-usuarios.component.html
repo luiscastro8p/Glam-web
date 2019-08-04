@@ -1,7 +1,7 @@
 <div id="wrapper" class="wrapper wrapper-content animated fadeInRight">
     <div class="row">
         <div class="col">
-            <button class="btn btn-sm btn-primary float-right " (click)="mostrarRegistro = true" type="submit" routerLink="/registro-usuario/nuevo"><i class="fas fa-plus"></i> Nuevo
+            <button class="btn btn-sm btn-primary float-right " type="submit" routerLink="/registro-usuario/nuevo"><i class="fas fa-plus"></i> Nuevo
             </button>
         </div>
     </div>
@@ -23,7 +23,7 @@
                                 <th scope="col">Email</th>
                                 <th scope="col">Nombre</th>
                                 <th scope="col">status</th>
-                                <th scope="col">fecha</th>
+                                <!-- <th scope="col">fecha</th> -->
                                 <th scope="col">Tipo</th>
                                 <th scope="col"> Acciones </th>
                             </tr>
@@ -38,7 +38,7 @@
                                     <label *ngIf="!usuario.status" class="badge badge-danger">Inactivo</label>
 
                                 </td>
-                                <td>{{usuario.fecha}}</td>
+                                <!-- <td>{{usuario.fecha}}</td> -->
                                 <td>{{usuario.tipo}}</td>
                                 <th>
                                     <a class="btn btn-info mr-1" [routerLink]="['/registro-usuario',usuario.id]">
