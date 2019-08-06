@@ -5,3 +5,7 @@
 .status {
     display: none;
 }
+
+agm-map {
+    height: 300px;
+}

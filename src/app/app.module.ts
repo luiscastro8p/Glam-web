@@ -15,6 +15,9 @@ import { HttpClientModule } from '@angular/common/http';
 import { ListaUsuariosComponent } from './componentes/Lista-Usuarios/lista-usuarios.component';
 import { RegistroUsuarioComponent } from './componentes/registro-usuario/registro-usuario.component';
 
+//map
+import { AgmCoreModule } from '@agm/core'
+
 @NgModule({
   declarations: [
     AppComponent,
@@ -30,7 +33,10 @@ import { RegistroUsuarioComponent } from './componentes/registro-usuario/registr
     BrowserModule,
      AppRoutingModule,
      FormsModule,
-     HttpClientModule
+     HttpClientModule,
+     AgmCoreModule.forRoot({
+       apiKey: 'AIzaSyCulgHVWf3cVBDWW3RVGYl5NqR6Bf71_QU'
+     })
   ],
   providers: [],
   bootstrap: [AppComponent]
