@@ -20,25 +20,29 @@
                         <thead class="thead-light">
                             <tr>
                                 <th scope="col">#</th>
+                                <th scope="col">Nombre comercial</th>
+                                <th scope="col">Razón social</th>
+                                <th scope="col">Encargado</th>
                                 <th scope="col">Email</th>
-                                <th scope="col">Nombre</th>
                                 <th scope="col">status</th>
-                                <!-- <th scope="col">fecha</th> -->
+                                <th scope="col">Horario</th>
                                 <th scope="col">Tipo</th>
-                                <th scope="col"> Acciones </th>
+                                <th scope="col">Acciones</th>
                             </tr>
                         </thead>
                         <tbody>
                             <tr *ngFor="let usuario of usuarios; let i = index ">
                                 <th scope="row">{{ i + 1 }}</th>
-                                <td>{{usuario.email}}</td>
+                                <td>{{usuario.Ncomercial}}</td>
+                                <td>{{usuario.rsocial}}</td>
                                 <td>{{usuario.nombre}}</td>
+                                <td>{{usuario.email}}</td>
                                 <td>
-                                    <label *ngIf="usuario.status" class="badge badge-primary">Activo</label>
-                                    <label *ngIf="!usuario.status" class="badge badge-danger">Inactivo</label>
+                                    <label *ngIf="usuario.status" class="badge badge-primary">Abierto</label>
+                                    <label *ngIf="!usuario.status" class="badge badge-danger">Cerrado</label>
 
                                 </td>
-                                <!-- <td>{{usuario.fecha}}</td> -->
+                                <td>{{usuario.hapertura}} - {{usuario.hcierre}}</td>
                                 <td>{{usuario.tipo}}</td>
                                 <th>
                                     <a class="btn btn-info mr-1" [routerLink]="['/registro-usuario',usuario.id]">

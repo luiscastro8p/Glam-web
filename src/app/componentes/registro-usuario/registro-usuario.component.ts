@@ -13,7 +13,7 @@ import Swal from 'sweetalert2';
 })
 export class RegistroUsuarioComponent implements OnInit {
 
-
+  otro = false;
    
    registro: RegistroModel = new RegistroModel();  
 

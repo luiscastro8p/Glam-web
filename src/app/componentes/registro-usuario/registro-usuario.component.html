@@ -20,6 +20,36 @@
                 </div>
             </div>
         </div>
+        <div class="form-group row">
+            <label for="inputEmail3" class="col-sm-2 col-form-label">Nombre <br> comercial</label>
+            <div class="col-sm-10">
+                <input ngModel name="Ncomercial" type="text" class="form-control " id="inputEmail3" placeholder="" #Ncomercial="ngModel" [(ngModel)]="registro.Ncomercial" required>
+                <div *ngIf="nombre.errors?.required">
+                    Este campo es requerido
+                </div>
+            </div>
+        </div>
+        <div class="form-group row">
+            <label for="inputEmail3" class="col-sm-2 col-form-label">Razón<br>Social</label>
+            <div class="col-sm-10">
+                <input ngModel name="rsocial" type="text" class="form-control " id="inputEmail3" placeholder="Nombre oficial de la empresa" #rsocial="ngModel" [(ngModel)]="registro.rsocial" required>
+                <div *ngIf="rsocial.errors?.required">
+                    Este campo es requerido
+                </div>
+            </div>
+        </div>
+        <div class="form-group row">
+            <label for="inputEmail3" class="col-sm-2 col-form-label">Encargado</label>
+            <div class="col-sm-10">
+                <input ngModel name="nombre" type="text" class="form-control " id="inputEmail3" placeholder="Nombre" minlength="10" #nombre="ngModel" [(ngModel)]="registro.nombre" required>
+                <div *ngIf="nombre.errors?.required">
+                    Este campo es requerido
+                </div>
+                <div *ngIf="nombre.errors?.minlength">
+                    Por lo menos {{ nombre.errors.minlength.requiredLength }} caracteres
+                </div>
+            </div>
+        </div>
         <div class="form-group row has-danger">
             <label for="inputEmail3" class="col-sm-2 col-form-label">Email</label>
             <div class="col-sm-10">
@@ -30,42 +60,38 @@
             </div>
         </div>
         <div class="form-group row">
-            <label for="inputEmail3" class="col-sm-2 col-form-label">Nombre</label>
-            <div class="col-sm-10">
-                <input ngModel name="nombre" type="text" class="form-control" id="inputEmail3" placeholder="Nombre" minlength="10" #nombre="ngModel" [(ngModel)]="registro.nombre" required>
-                <div *ngIf="nombre.errors?.required">
-                    Este campo es requerido
-                </div>
-                <div *ngIf="nombre.errors?.minlength">
-                    Por lo menos {{ nombre.errors.minlength.requiredLength }} caracteres
-                </div>
+            <label class="col-2  col-form-label">Horario</label>
+            <div class="col-2 col-sm-4 ">
+                <label>Apertura</label>
+                <input ngModel name="hapertura" type="time" class="form-control" [(ngModel)]="registro.hapertura" required>
+            </div>
+            <div class="col-2 col-sm-4 ">
+                <label>Cierre</label>
+                <input ngModel name="hcierre" type="time" class="form-control" [(ngModel)]="registro.hcierre" required>
             </div>
         </div>
-        <!-- <div class="form-group row">
-            <label class="col-sm-2 col-form-label">Fecha</label>
-            <div class="col-sm-10">
-                <input #fecha ngModel name="fecha" type="date" class="form-control" id="inputEmail3" [(ngModel)]="registro.fecha" required>
-                <div *ngIf="fecha.errors?.required">
-                    Este campo es requerido
-                </div>
-            </div>
-        </div> -->
         <div class="form-group row ">
             <label for="inputEmail3" class="col-sm-2 col-form-label">Tipo</label>
             <div class="col-sm-10">
                 <select #Tipo="ngModel" ngModel name="tipo" id="inputState" class="form-control" [(ngModel)]="registro.tipo" required>
               <option selected disabled >Selecciona el tipo de usuario</option>
-              <option>Administrador</option>
-              <option>Cliente</option>
+              <option>Estetica</option>
+              <option>Barberia</option>
+              <option>Spa</option>
+              <option (click)="otro = true" >Otro...</option>
+
             </select>
+
                 <div *ngIf="Tipo.errors?.required">
                     Este campo es requerido
                 </div>
+                <div *ngIf="otro">
+                    <input ngModel name="otro" type="text" class="form-control" [(ngModel)]="registro.otro" required>
+                </div>
             </div>
         </div>
-        <fieldset class="form-group">
+        <fieldset class="form-group status">
             <div class="row">
-
                 <legend class="col-form-label col-sm-2 pt-0">Status</legend>
                 <div class="col-sm-10">
                     <div class="">
@@ -85,9 +111,6 @@
                         Inactivo
                       </label>
                     </div> -->
-
-
-
                 </div>
             </div>
         </fieldset>
