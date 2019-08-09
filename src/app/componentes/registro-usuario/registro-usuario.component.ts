@@ -5,6 +5,7 @@ import { ActivatedRoute } from '@angular/router';
 import { RegistroUsuarioService } from '../../services/registro-usuario.service';
 import { Observable } from 'rxjs';
 import Swal from 'sweetalert2';
+import { Marcador } from '../../clases/marcador.class';
 
 @Component({
   selector: 'app-registro-usuario',
@@ -13,14 +14,21 @@ import Swal from 'sweetalert2';
 })
 export class RegistroUsuarioComponent implements OnInit {
 
-  lat: number = 51.678418;
-  lng: number = 7.809007;
+  lat: number = 24.8078299;
+  lng: number = -107.3979137;
   otro = false;
-   
-   registro: RegistroModel = new RegistroModel();  
-
+  
+   registro: RegistroModel = new RegistroModel(  );  
+   marcadores: Marcador[] =  [];
+  
+  
   constructor(private registroService:RegistroUsuarioService,
-              private route:ActivatedRoute) { }
+              private route:ActivatedRoute) {
+
+                const nuevoMarcador = new Marcador( 0,0 );
+                
+                this.marcadores.push (nuevoMarcador);
+               }
 
   ngOnInit() {
 
@@ -35,6 +43,18 @@ export class RegistroUsuarioComponent implements OnInit {
         
       });
     }
+  }
+
+  agregarmarcador(evento){
+    const coords:{ lat:number,lng:number } = evento.coords;
+    
+    const nuevoMarcador = new Marcador( coords.lat, coords.lng );
+    this.marcadores.push(nuevoMarcador);
+      
+    console.log(evento.coords);
+
+    
+
   }
   
   guardar( forma:NgForm ){

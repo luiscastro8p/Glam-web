@@ -10,6 +10,10 @@ import Swal from 'sweetalert2';
 })
 export class ListaUsuariosComponent implements OnInit {
 
+  lat =  25.774947;
+  lng = -109.0192873;
+  
+
   mostrarRegistro:boolean = false;
 
   usuarios: RegistroModel[] =[];
@@ -19,7 +23,7 @@ export class ListaUsuariosComponent implements OnInit {
   constructor ( private RegistroUsuarioService: RegistroUsuarioService) { }
 
   ngOnInit() {
-
+  
     this.cargando = true;
     this.RegistroUsuarioService.getUsuario()
     .subscribe( resp => {

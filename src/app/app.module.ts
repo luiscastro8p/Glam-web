@@ -35,7 +35,7 @@ import { AgmCoreModule } from '@agm/core'
      FormsModule,
      HttpClientModule,
      AgmCoreModule.forRoot({
-       apiKey: 'AIzaSyCulgHVWf3cVBDWW3RVGYl5NqR6Bf71_QU'
+       apiKey: 'AIzaSyDNOu2JQ001PxZY-GVwFvVou0_6h_Sj-14'
      })
   ],
   providers: [],

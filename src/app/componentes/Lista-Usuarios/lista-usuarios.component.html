@@ -26,6 +26,7 @@
                                 <th scope="col">Email</th>
                                 <th scope="col">status</th>
                                 <th scope="col">Horario</th>
+                                <th scope="col">Ubicacion</th>
                                 <th scope="col">Tipo</th>
                                 <th scope="col">Acciones</th>
                             </tr>
@@ -43,17 +44,47 @@
 
                                 </td>
                                 <td>{{usuario.hapertura}} - {{usuario.hcierre}}</td>
+                                <td>
+                                    <a type="button" class=" btn btn-outline-primary " data-toggle="modal" data-target="#myModal"><i class="fas fa-map-marker-alt"></i>  Ver mas</a>
+                                    <!-- Modal -->
+                                    <div class="modal fade" id="myModal" tabindex="-1" role="dialog" aria-labelledby="myModalLabel">
+                                        <div class="modal-dialog modal-lg" role="document">
+                                            <div class="modal-content">
+                                                <div class="modal-header">
+                                                    <h4 class="modal-title" id="myModalLabel">Ubicacion del local</h4>
+                                                    <button type="button" class="close" data-dismiss="modal" aria-label="Close"><span aria-hidden="true">&times;</span></button>
+                                                </div>
+                                                <div class="modal-body">
+                                                    <div class="row">
+                                                        <div class="col-md-12 modal_body_content">
+                                                            <agm-map [latitude]="lat" [longitude]="lng" [zoom]="15">
+                                                                <agm-marker [latitude]="lat" [longitude]="lng">
+                                                                    <agm-info-window>
+                                                                        <strong>{{usuario.rsocial}}</strong>
+                                                                    </agm-info-window>
+                                                                </agm-marker>
+                                                            </agm-map>
+                                                        </div>
+                                                    </div>
+
+                                                </div>
+                                            </div>
+                                        </div>
+                                    </div>
+                                </td>
                                 <td>{{usuario.tipo}}</td>
                                 <th>
-                                    <a class="btn btn-info mr-1" [routerLink]="['/registro-usuario',usuario.id]">
+                                    <button class="btn btn-info mr-1" [routerLink]="['/registro-usuario',usuario.id]">
                                         <i class="fa fa-pen"></i>
-                                    </a>
+                                    </button>
                                     <button class="btn btn-danger mr-1  " (click)="borrarUsuario(usuario, i);">
                                             <i class="fa fa-trash"></i>
                                         </button>
                                 </th>
+
                             </tr>
                         </tbody>
+
                     </table>
                     <div *ngIf="!cargando && usuarios.length === 0" class=" alert alert-warning text-center mt-3 animated fadeIn faster">
                         <h4 class="alert-heading">No hay registros</h4>

@@ -10,12 +10,14 @@ export class RegistroModel {
    hcierre:Time;
    tipo:string;
    status:boolean;
-   otro:string;
+   
    rsocial:string;
-   lat:number;
-   lng:number;
+  
 
-   constructor(){
-       this.status = false;
+   constructor(   ){
+      this.status = false;
+      
+            
    }
+   
 }
