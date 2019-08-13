@@ -10,8 +10,9 @@ export class RegistroModel {
    hcierre:Time;
    tipo:string;
    status:boolean;
-   
    rsocial:string;
+   lat:number;
+   lng:number;
   
 
    constructor(   ){

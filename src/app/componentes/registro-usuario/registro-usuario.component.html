@@ -90,7 +90,7 @@
                 <label>Ubicacion</label>
             </div>
             <div class="col">
-                <button type="button" ngModel class="btn btn-primary" data-toggle="modal" data-target="#mapa">
+                <button type="button" class="btn btn-primary" data-toggle="modal" data-target="#mapa">
                             Selecciona la ubicacion
                           </button>
 
@@ -98,8 +98,8 @@
             </div>
             <div class="col-5">
                 <div class="input-group">
-                    <input type="text" class="form-control" disabled>
-                    <input type="text" class="form-control" disabled>
+                    <input type="text" ngmodel class="form-control" name="lat" id="lat" value="{{nuevoMarcador.lat}}" required [(ngModel)]="registro.lat">
+                    <input type="text" ngmodel class="form-control" name="lng" id="lng" value="{{nuevoMarcador.lng}}" required [(ngModel)]="registro.lng">
                 </div>
             </div>
         </div>
@@ -116,12 +116,12 @@
                         <div class="row">
                             <div class="col-md-12 modal_body_content">
                                 <agm-map (mapClick)="agregarmarcador($event)" [latitude]="lat" [longitude]="lng" [zoom]="12">
-                                    <agm-marker *ngFor="let marcador of marcadores;   " [latitude]="marcador.lat" [longitude]="marcador.lng"></agm-marker>
+                                    <agm-marker *ngFor="let marcador of marcadores;" [latitude]="marcador.lat" [longitude]="marcador.lng"></agm-marker>
                                 </agm-map>
                             </div>
                         </div>
                     </div>
-                    <button type="button" ngModel class="btn btn-primary" data-toggle="modal" data-target="#mapa">
+                    <button (click)="coordenadas()" type="button" ngModel class="btn btn-primary" data-toggle="modal" data-target="#mapa">
                             Aceptar
                           </button>
                 </div>
@@ -154,14 +154,16 @@
             </div>
         </fieldset>
 
-        <div class="form-group row">
-            <label class="col-2 col-form-label">&nbsp;</label>
-            <div class="input-group col-md-8">
-                <button [disabled]="!forma.valid" type="submit" class="btn btn-primary">
+        <div class="container d-flex align-content-center justify-content-center">
+            <div class="form-group row  ">
+                <div class="col ">
+                    <div class="input-group ">
+                        <button [disabled]="!forma.valid" type="submit" class="btn btn-primary tamaño">
                     Guardar
                   </button>
+                    </div>
+                </div>
             </div>
         </div>
-
     </form>
 </div>

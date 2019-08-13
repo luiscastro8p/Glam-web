@@ -20,14 +20,11 @@ export class RegistroUsuarioComponent implements OnInit {
   
    registro: RegistroModel = new RegistroModel(  );  
    marcadores: Marcador[] =  [];
-  
+   public nuevoMarcador = new Marcador(24.8078299 ,-107.3979137 );
   
   constructor(private registroService:RegistroUsuarioService,
               private route:ActivatedRoute) {
-
-                const nuevoMarcador = new Marcador( 0,0 );
-                
-                this.marcadores.push (nuevoMarcador);
+                this.marcadores.push (this.nuevoMarcador);
                }
 
   ngOnInit() {
@@ -47,15 +44,28 @@ export class RegistroUsuarioComponent implements OnInit {
 
   agregarmarcador(evento){
     const coords:{ lat:number,lng:number } = evento.coords;
-    
-    const nuevoMarcador = new Marcador( coords.lat, coords.lng );
-    this.marcadores.push(nuevoMarcador);
-      
+    this.nuevoMarcador = new Marcador( coords.lat, coords.lng );
+    this.marcadores = [];
+    this.marcadores.push(this.nuevoMarcador); 
     console.log(evento.coords);
-
     
+     
+     
+  }
+  
+  coordenadas(){
+    // console.log("hola mundo");
+    // var Texto = this.nuevoMarcador.lat;
+    // // var lat =(<HTMLInputElement>document.getElementById("lat")).value = Texto;
+    // // var lat : number = parseFloat((<HTMLInputElement>document.getElementById("lat")).value) = Texto;
+    
+    // // var lng = document.getElementById("lng") = Texto;
+
+      
+
 
   }
+  
   
   guardar( forma:NgForm ){
     
