@@ -12,56 +12,53 @@ import Swal from 'sweetalert2';
   styleUrls: ['./login.component.css']
 })
 export class LoginComponent implements OnInit {
-   
-   usuario:UsuarioModel = new UsuarioModel;
-   recordarme = false;
 
-   constructor(private  auth:AuthService,
-                private router:Router) { }
+  usuario: UsuarioModel = new UsuarioModel;
+  recordarme = false;
+
+  constructor(private auth: AuthService, private router: Router) { }
 
   ngOnInit() {
-    
-    if(localStorage.getItem('email')){
-        this.usuario.email = localStorage.getItem('email'),
-         this.recordarme = true;
-      }
-    
+
+    if (localStorage.getItem('email')) {
+      this.usuario.email = localStorage.getItem('email'),
+        this.recordarme = true;
+    }
+
   }
 
 
-  login( form: NgForm){
- 
-    if( form.invalid){
+  login(form: NgForm) {
+
+    if (form.invalid) {
       return;
     }
 
     Swal.fire({
-      allowOutsideClick:false,
+      allowOutsideClick: false,
       type: 'info',
-      text:'Espere por favor...'
+      text: 'Espere por favor...'
     });
     Swal.showLoading();
 
-
-
     this.auth.login(this.usuario)
-    .subscribe( resp=> {
-      console.log(resp);
-      Swal.close();
-      if(this.recordarme){
-        localStorage.setItem('email',this.usuario.email);
-      }
-      this.router.navigateByUrl('/home');
-    
-    },(err) => {
-      console.log(err.error.error.message);
-      Swal.fire({
-        
-        type: 'error',
-        title:'Error al autenticar',
-        text: err.error.error.message
+      .subscribe(resp => {
+        console.log(resp);
+        Swal.close();
+        if (this.recordarme) {
+          localStorage.setItem('email', this.usuario.email);
+        }
+        this.router.navigateByUrl('/home');
+
+      }, (err) => {
+        console.log(err.error.error.message);
+        Swal.fire({
+
+          type: 'error',
+          title: 'Error al autenticar',
+          text: err.error.error.message
+        });
       });
-    });
 
 
     // console.log(this.usuario);

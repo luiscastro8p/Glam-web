@@ -1,8 +1,9 @@
 <div class="container mt-3  mb-3 animated fadeInRight">
     <div class="row text-right">
         <div class="col">
-            <button routerLink="/lista-usuario" class="btn btn-sm btn-danger" type="submit"><i class="fas fa-arrow-left"></i> Regresar
-    </button>
+            <button routerLink="/lista-usuario" class="btn btn-sm btn-danger" type="submit"><i
+                    class="fas fa-arrow-left"></i> Regresar
+            </button>
         </div>
     </div>
 </div>
@@ -14,7 +15,8 @@
         <div class="form-group row has-danger">
             <label for="inputEmail3" class="col-sm-2 col-form-label">ID</label>
             <div class="col-sm-10">
-                <input [(ngModel)]="registro.id" name="id" type="text" class="form-control" disabled="disabled" required>
+                <input [(ngModel)]="registro.id" name="id" type="text" class="form-control" disabled="disabled"
+                    required>
                 <div class="form-control-feedback text-muted">
                     Este campo es autogenerado
                 </div>
@@ -23,7 +25,8 @@
         <div class="form-group row">
             <label for="inputEmail3" class="col-sm-2 col-form-label">Nombre <br> comercial</label>
             <div class="col-sm-10">
-                <input ngModel name="Ncomercial" type="text" class="form-control " id="inputEmail3" placeholder="" #Ncomercial="ngModel" [(ngModel)]="registro.Ncomercial" required>
+                <input ngModel name="Ncomercial" type="text" class="form-control " id="inputEmail3" placeholder=""
+                    #Ncomercial="ngModel" [(ngModel)]="registro.Ncomercial" required>
                 <div *ngIf="nombre.errors?.required">
                     Este campo es requerido
                 </div>
@@ -32,7 +35,9 @@
         <div class="form-group row">
             <label for="inputEmail3" class="col-sm-2 col-form-label">Razón<br>Social</label>
             <div class="col-sm-10">
-                <input ngModel name="rsocial" type="text" class="form-control " id="inputEmail3" placeholder="Nombre oficial de la empresa" #rsocial="ngModel" [(ngModel)]="registro.rsocial" required>
+                <input ngModel name="rsocial" type="text" class="form-control " id="inputEmail3"
+                    placeholder="Nombre oficial de la empresa" #rsocial="ngModel" [(ngModel)]="registro.rsocial"
+                    required>
                 <div *ngIf="rsocial.errors?.required">
                     Este campo es requerido
                 </div>
@@ -41,7 +46,8 @@
         <div class="form-group row">
             <label for="inputEmail3" class="col-sm-2 col-form-label">Encargado</label>
             <div class="col-sm-10">
-                <input ngModel name="nombre" type="text" class="form-control " id="inputEmail3" placeholder="Nombre" minlength="10" #nombre="ngModel" [(ngModel)]="registro.nombre" required>
+                <input ngModel name="nombre" type="text" class="form-control " id="inputEmail3" placeholder="Nombre"
+                    #nombre="ngModel" [(ngModel)]="registro.nombre" required>
                 <div *ngIf="nombre.errors?.required">
                     Este campo es requerido
                 </div>
@@ -53,7 +59,9 @@
         <div class="form-group row has-danger">
             <label for="inputEmail3" class="col-sm-2 col-form-label">Email</label>
             <div class="col-sm-10">
-                <input ngModel #email="ngModel" name="email" type="email" class="form-control" id="inputEmail3" placeholder="Email" pattern="[a-z0-9._%+-]+@[a-z0-9.-]+\.[a-z]{2,3}$" [(ngModel)]="registro.email" required>
+                <input ngModel #email="ngModel" name="email" type="email" class="form-control" id="inputEmail3"
+                    placeholder="Email" pattern="[a-z0-9._%+-]+@[a-z0-9.-]+\.[a-z]{2,3}$" [(ngModel)]="registro.email"
+                    required>
                 <div class="form-control-feedback" *ngIf="email.errors?.required">
                     Este campo es requerido
                 </div>
@@ -63,7 +71,8 @@
             <label class="col-2  col-form-label">Horario</label>
             <div class="col-2 col-sm-4 ">
                 <label>Apertura</label>
-                <input ngModel [(ngModel)]="registro.hapertura" name="hapertura" type="time" class="form-control" required>
+                <input ngModel [(ngModel)]="registro.hapertura" name="hapertura" type="time" class="form-control"
+                    required>
             </div>
             <div class="col-2 col-sm-4 ">
                 <label>Cierre</label>
@@ -74,11 +83,11 @@
             <label for="inputEmail3" class="col-sm-2 col-form-label">Tipo</label>
             <div class="col-sm-10">
                 <select ngModel class="form-control" [(ngModel)]="registro.tipo" name="tipos" required>
-                 <option selected disabled>Selecciona el tipo de usuario</option>
-                <option >Estetica</option>
-                <option >Barberia</option>
-                <option >Spa</option>
-                <option>Otro...</option>
+                    <option selected disabled>Selecciona el tipo de usuario</option>
+                    <option>Estetica</option>
+                    <option>Barberia</option>
+                    <option>Spa</option>
+                    <option>Otro...</option>
                 </select>
             </div>
         </div>
@@ -91,8 +100,8 @@
             </div>
             <div class="col">
                 <button type="button" class="btn btn-primary" data-toggle="modal" data-target="#mapa">
-                            Selecciona la ubicacion
-                          </button>
+                    Selecciona la ubicacion
+                </button>
 
 
             </div>
@@ -111,20 +120,24 @@
                 <div class="modal-content">
                     <div class="modal-header">
                         <h4 class="modal-title" id="myModalLabel">Ubicacion del local</h4>
-                        <button type="button" class="close" data-dismiss="modal" aria-label="Close"><span aria-hidden="true">&times;</span></button>
+                        <button type="button" class="close" data-dismiss="modal" aria-label="Close"><span
+                                aria-hidden="true">&times;</span></button>
                     </div>
                     <div class="modal-body">
                         <div class="row">
                             <div class="col-md-12 modal_body_content">
-                                <agm-map (mapClick)="agregarmarcador($event)" [latitude]="lat" [longitude]="lng" [zoom]="9">
-                                    <agm-marker *ngFor="let marcador of marcadores;" [latitude]="marcador.lat" [longitude]="marcador.lng"></agm-marker>
+                                <agm-map (mapClick)="agregarmarcador($event)" [latitude]="lat" [longitude]="lng"
+                                    [zoom]="9">
+                                    <agm-marker *ngFor="let marcador of marcadores;" [latitude]="marcador.lat"
+                                        [longitude]="marcador.lng"></agm-marker>
                                 </agm-map>
                             </div>
                         </div>
                     </div>
-                    <button (click)="coordenadas()" type="button" ngModel class="btn btn-primary" data-toggle="modal" data-target="#mapa">
-                            Aceptar
-                          </button>
+                    <button (click)="coordenadas()" type="button" ngModel class="btn btn-primary" data-toggle="modal"
+                        data-target="#mapa">
+                        Aceptar
+                    </button>
                 </div>
             </div>
         </div>
@@ -136,10 +149,11 @@
                 <div class="col-sm-10">
                     <div class="">
                         <label class="switch ">
-                             <input  ngModel type="checkbox" name="status" id="Activo" value="Activo" [(ngModel)]="registro.status" checked disabled >
-                                <span class="slider round">
-                                </span>
-                       </label>
+                            <input ngModel type="checkbox" name="status" id="Activo" value="Activo"
+                                [(ngModel)]="registro.status" checked disabled>
+                            <span class="slider round">
+                            </span>
+                        </label>
                         <!-- <input ngModel class="form-check-input " type="radio" name="Status" id="Activo" value="Activo" checked>
                         <label class="form-check-label" for="Activo">
                         Activo
@@ -160,8 +174,8 @@
                 <div class="col ">
                     <div class="input-group ">
                         <button [disabled]="!forma.valid" type="submit" class="btn btn-primary tamaño">
-                    Guardar
-                  </button>
+                            Guardar
+                        </button>
                     </div>
                 </div>
             </div>

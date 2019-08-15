@@ -12,22 +12,21 @@ import { Router } from '@angular/router';
 })
 export class NavbarComponent implements OnInit {
 
-    mostrar: false;
-   
-    
-    
-    
-    
-  constructor( private auth:AuthService,
-                private Router: Router) { }
+  mostrar: false;
+
+
+
+
+
+  constructor(private auth: AuthService, private Router: Router) { }
 
   ngOnInit() {
   }
 
-  salir(){
+  salir() {
     this.auth.logout();
     this.Router.navigateByUrl('/login');
 
   };
-  
+
 }
