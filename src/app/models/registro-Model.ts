@@ -15,10 +15,8 @@ export class RegistroModel {
    lng:number;
   
 
-   constructor(   ){
+   constructor(){
       this.status = false;
-      
-            
    }
    
 }

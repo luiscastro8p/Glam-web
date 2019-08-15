@@ -98,8 +98,9 @@
             </div>
             <div class="col-5">
                 <div class="input-group">
-                    <input type="text" ngmodel class="form-control" name="lat" id="lat" value="{{nuevoMarcador.lat}}" required [(ngModel)]="registro.lat">
-                    <input type="text" ngmodel class="form-control" name="lng" id="lng" value="{{nuevoMarcador.lng}}" required [(ngModel)]="registro.lng">
+                    <input type="text" ngmodel class="form-control" name="lat" id="lat" [(ngModel)]="registro.lat">
+
+                    <input type="text" ngmodel class="form-control" name="lng" id="lng" [(ngModel)]="registro.lng">
                 </div>
             </div>
         </div>
@@ -115,7 +116,7 @@
                     <div class="modal-body">
                         <div class="row">
                             <div class="col-md-12 modal_body_content">
-                                <agm-map (mapClick)="agregarmarcador($event)" [latitude]="lat" [longitude]="lng" [zoom]="12">
+                                <agm-map (mapClick)="agregarmarcador($event)" [latitude]="lat" [longitude]="lng" [zoom]="9">
                                     <agm-marker *ngFor="let marcador of marcadores;" [latitude]="marcador.lat" [longitude]="marcador.lng"></agm-marker>
                                 </agm-map>
                             </div>
