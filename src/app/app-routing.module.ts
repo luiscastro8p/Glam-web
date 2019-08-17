@@ -8,10 +8,13 @@ import { PerfilComponent } from './componentes/perfil/perfil.component';
 import { AuthGuard } from './guards/auth.guard';
 import { ListaUsuariosComponent } from './componentes/Lista-Usuarios/lista-usuarios.component';
 import { RegistroUsuarioComponent } from './componentes/registro-usuario/registro-usuario.component';
+import { TopNavbarComponent } from './componentes/top-navbar/top-navbar.component';
+import { BasicLayoutComponent } from './componentes/layouts/basicLayout.component';
 
 
 const routes: Routes = [
   { path:'home', component: NavbarComponent, canActivate: [ AuthGuard ] },
+  { path:'top-navbar', component: TopNavbarComponent },
   { path:'login', component: LoginComponent },
   { path:'registro', component: RegistroComponent },
   { path:'olvidaste-contraseña', component: ForgotPasswordComponent },

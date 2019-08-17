@@ -9,16 +9,20 @@ import {NgbModule} from '@ng-bootstrap/ng-bootstrap';
 import { AppRoutingModule } from './app-routing.module';
 import { AppComponent } from './app.component';
 import { LoginComponent } from './componentes/login/login.component';
+//navbar
+import { TopNavbarComponent } from './componentes/top-navbar/top-navbar.component';
 import { NavbarComponent } from './componentes/navbar/navbar.component';
+
+import { ListaUsuariosComponent } from './componentes/Lista-Usuarios/lista-usuarios.component';
 import { RegistroComponent } from './componentes/registro/registro.component';
 import { ForgotPasswordComponent } from './componentes/forgot-password/forgot-password.component';
 import { PerfilComponent } from './componentes/perfil/perfil.component';
 import { HttpClientModule } from '@angular/common/http';
-import { ListaUsuariosComponent } from './componentes/Lista-Usuarios/lista-usuarios.component';
 import { RegistroUsuarioComponent } from './componentes/registro-usuario/registro-usuario.component';
 
 //map
 import { AgmCoreModule } from '@agm/core';
+import { RouterModule } from '@angular/router';
 
 
 
@@ -31,7 +35,8 @@ import { AgmCoreModule } from '@agm/core';
     ForgotPasswordComponent,
     PerfilComponent,
     ListaUsuariosComponent,
-    RegistroUsuarioComponent
+    RegistroUsuarioComponent,
+    TopNavbarComponent
   ],
   imports: [
     BrowserModule,
@@ -39,6 +44,8 @@ import { AgmCoreModule } from '@agm/core';
      FormsModule,
      HttpClientModule,
      NgbModule,
+     RouterModule,
+     BrowserModule,
      AgmCoreModule.forRoot({
        apiKey: 'AIzaSyDNOu2JQ001PxZY-GVwFvVou0_6h_Sj-14'
      })
