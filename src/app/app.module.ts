@@ -1,6 +1,8 @@
 import { BrowserModule } from '@angular/platform-browser';
 import { NgModule } from '@angular/core';
 import { FormsModule } from '@angular/forms';
+import {NgbModule} from '@ng-bootstrap/ng-bootstrap';
+
 
 //servicios
 //componentes
@@ -16,7 +18,9 @@ import { ListaUsuariosComponent } from './componentes/Lista-Usuarios/lista-usuar
 import { RegistroUsuarioComponent } from './componentes/registro-usuario/registro-usuario.component';
 
 //map
-import { AgmCoreModule } from '@agm/core'
+import { AgmCoreModule } from '@agm/core';
+
+
 
 @NgModule({
   declarations: [
@@ -34,6 +38,7 @@ import { AgmCoreModule } from '@agm/core'
      AppRoutingModule,
      FormsModule,
      HttpClientModule,
+     NgbModule,
      AgmCoreModule.forRoot({
        apiKey: 'AIzaSyDNOu2JQ001PxZY-GVwFvVou0_6h_Sj-14'
      })

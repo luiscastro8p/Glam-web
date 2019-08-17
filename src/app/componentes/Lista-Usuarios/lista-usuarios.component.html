@@ -45,9 +45,11 @@
                                 </td>
                                 <td>{{usuario.hapertura}} - {{usuario.hcierre}}</td>
                                 <td>
-                                    <a type="button" class=" btn btn-outline-primary " data-toggle="modal" data-target="#myModal"><i class="fas fa-map-marker-alt"></i>  Ver mas</a>
+                                    <!-- <a type="button" class=" btn btn-outline-primary " data-toggle="modal" data-target="#myModal"><i class="fas fa-map-marker-alt"></i>  Ver mas</a>
+                                     -->
+                                    <button class="btn btn-outline-primary" (click)="abrirmodal(content)">ver mas</button>
                                     <!-- Modal -->
-                                    <div class="modal fade" id="myModal" tabindex="-1" role="dialog" aria-labelledby="myModalLabel">
+                                    <!-- <div class="modal fade" id="myModal" tabindex="-1" role="dialog" aria-labelledby="myModalLabel">
                                         <div class="modal-dialog modal-lg" role="document">
                                             <div class="modal-content">
                                                 <div class="modal-header">
@@ -59,18 +61,34 @@
                                                         <div class="col-md-12 modal_body_content">
                                                             <agm-map [latitude]="lat" [longitude]="lng" [zoom]="12">
                                                                 <agm-marker [latitude]="usuario.lat" [longitude]="usuario.lng">
-                                                                    <agm-info-window>
-                                                                        <strong>{{usuario.rsocial}}</strong>
-                                                                    </agm-info-window>
-                                                                </agm-marker>
+                                                                    </agm-marker>
                                                             </agm-map>
                                                         </div>
                                                     </div>
-
                                                 </div>
                                             </div>
                                         </div>
-                                    </div>
+                                    </div> -->
+
+                                    <ng-template #content let-c="close" let-d="dismiss">
+                                        <div class="modal-header ">
+                                            <h4 class="modal-title" id="modal-basic-title">Hi there!</h4>
+                                            <button type="button" class="close" aria-label="Close" (click)="c('Cross click')">
+                                            <span aria-hidden="true">&times;</span>
+                                          </button>
+                                        </div>
+                                        <div class="modal-body">
+                                            <div class="row">
+                                                <div class="col-md-12 modal_body_content">
+                                                    <agm-map [latitude]="lat" [longitude]="lng" [zoom]="12">
+                                                        <agm-marker [latitude]="usuario.lat" [longitude]="usuario.lng">
+                                                        </agm-marker>
+                                                    </agm-map>
+                                                </div>
+                                            </div>
+                                        </div>
+
+                                    </ng-template>
                                 </td>
                                 <td>{{usuario.tipo}}</td>
                                 <th>
@@ -83,7 +101,9 @@
                                 </th>
 
                             </tr>
+
                         </tbody>
+
 
                     </table>
                     <div *ngIf="!cargando && usuarios.length === 0" class=" alert alert-warning text-center mt-3 animated fadeIn faster">

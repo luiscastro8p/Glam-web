@@ -35,7 +35,10 @@ export class RegistroUsuarioComponent implements OnInit {
 
     if (id !== 'nuevo') {
       this.registroService.getUsuarioid(id)
-        .subscribe((resp) => {
+        .subscribe((resp:RegistroModel) => {
+          this.registro = resp;
+          this.registro.id = id;
+          
           console.log(resp);
         });
     }
@@ -72,24 +75,38 @@ export class RegistroUsuarioComponent implements OnInit {
     });
     Swal.showLoading();
 
+    let peticion: Observable<any>;
+
     if (this.registro.id) {
-      this.registroService.actualizarUsuario(this.registro).subscribe(res => {
-        console.log(res)
-        Swal.fire({
-          title: this.registro.nombre,
-          text: 'Se actualizo correctamente',
-          type: "success"
-        })
-      });
+      peticion = this.registroService.actualizarUsuario(this.registro)
+      // .subscribe(res => {
+      //   console.log(res)
+      //   Swal.fire({
+      //     title: this.registro.nombre,
+      //     text: 'Se actualizo correctamente',
+      //     type: "success"
+      //   })
+      // });
+      
     } else {
-      this.registroService.crearUsuario(this.registro).subscribe(res => {
-        console.log(res)
-        Swal.fire({
+      peticion = this.registroService.crearUsuario(this.registro)
+      // .subscribe(res => {
+      //   console.log(res)
+      //   Swal.fire({
+      //     title: this.registro.nombre,
+      //     text: 'Se actualizo correctamente',
+      //     type: "success"
+      //   })
+      // });
+    }
+    peticion.subscribe(res =>{
+         Swal.fire({
           title: this.registro.nombre,
           text: 'Se actualizo correctamente',
           type: "success"
         })
-      });
-    }
+    })
+    
+
   }
 }
