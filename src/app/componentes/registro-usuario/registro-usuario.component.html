@@ -12,7 +12,7 @@
     <hr>
 
     <form (ngSubmit)="guardar(forma)" #forma="ngForm" novalidate="">
-        <div class="form-group row has-danger">
+        <div class="form-group row has-danger ocultar">
             <label for="inputEmail3" class="col-sm-2 col-form-label">ID</label>
             <div class="col-sm-10">
                 <input [(ngModel)]="registro.id" name="id" type="text" class="form-control" disabled="disabled" required>
@@ -97,13 +97,13 @@
 
 
             </div>
-            <div class="col-5">
+            <!-- <div class="col-5">
                 <div class="input-group">
                     <input type="text" ngmodel class="form-control" name="lat" id="lat" [(ngModel)]="registro.lat">
 
                     <input type="text" ngmodel class="form-control" name="lng" id="lng" [(ngModel)]="registro.lng">
                 </div>
-            </div>
+            </div> -->
         </div>
 
         <!-- Modal -->

@@ -9,7 +9,9 @@ import { AuthGuard } from './guards/auth.guard';
 import { ListaUsuariosComponent } from './componentes/Lista-Usuarios/lista-usuarios.component';
 import { RegistroUsuarioComponent } from './componentes/registro-usuario/registro-usuario.component';
 import { TopNavbarComponent } from './componentes/top-navbar/top-navbar.component';
-import { BasicLayoutComponent } from './componentes/layouts/basicLayout.component';
+import { ListaEstilistasComponent } from './componentes/lista-estilistas/lista-estilistas.component';
+import { RegistroEstilistaComponent } from './componentes/registro-estilista/registro-estilista.component';
+
 
 
 const routes: Routes = [
@@ -20,6 +22,8 @@ const routes: Routes = [
   { path:'olvidaste-contraseña', component: ForgotPasswordComponent },
   { path:'perfil', component: PerfilComponent },
   { path:'lista-usuario', component: ListaUsuariosComponent },
+  { path:'lista-estilista', component:ListaEstilistasComponent },
+  { path:'registro-estilista/:id', component: RegistroEstilistaComponent },
   { path:'registro-usuario/:id', component: RegistroUsuarioComponent },
   { path: '**', pathMatch: 'full', redirectTo: 'home' }
 

@@ -1,0 +1,45 @@
+<div class="wrapper wrapper-content animated fadeInRight">
+    <div class="container">
+        <div class="row">
+            <div class="col">
+                <button class="btn btn-sm btn-primary float-right " type="submit" routerLink="/registro-estilista/nuevo"><i class="fas fa-plus"></i> Nuevo
+                    </button>
+            </div>
+        </div>
+    </div>
+    <div class="row">
+        <div class="col-lg-3  text-center" *ngFor="let estilista of estilista let i = index">
+
+            <div class="contact-box  ">
+                <!-- <a href="profile.html"> -->
+                <img alt="image" class="rounded-circle " src="../../../assets/libs/img/perfil.jpg" width=100px>
+                <h3 class="m-b-xs"><strong>{{estilista.nombre}}</strong></h3>
+
+                <div class="font-bold">Empleado</div>
+                <address class="m-t-md">
+                    
+                    {{estilista.especialidad}}<br><br>
+                   {{estilista.servicios}}<br>
+                   <br>
+                    <abbr title="Phone">P:</abbr> (123) 456-7890
+                </address>
+
+                <!-- </a> -->
+                <div class="contact-box-footer">
+                    <div class="m-t-xs btn-group">
+
+                        <div class="text-center">
+                            <button class="btn btn-info mr-1" [routerLink]="['/registro-estilista',estilista.id]">
+                                    <i class="fa fa-pen"></i>
+                                </button>
+                            <button class="btn btn-danger mr-1  " (click)="borrarUsuario(estilista, i);">
+                                        <i class="fa fa-trash"></i>
+                                    </button>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+        </div>
+    </div>
+</div>

@@ -1,6 +1,6 @@
 import { BrowserModule } from '@angular/platform-browser';
 import { NgModule } from '@angular/core';
-import { FormsModule } from '@angular/forms';
+import { FormsModule, ReactiveFormsModule } from '@angular/forms';
 import {NgbModule} from '@ng-bootstrap/ng-bootstrap';
 
 
@@ -23,6 +23,8 @@ import { RegistroUsuarioComponent } from './componentes/registro-usuario/registr
 //map
 import { AgmCoreModule } from '@agm/core';
 import { RouterModule } from '@angular/router';
+import { RegistroEstilistaComponent } from './componentes/registro-estilista/registro-estilista.component';
+import { ListaEstilistasComponent } from './componentes/lista-estilistas/lista-estilistas.component';
 
 
 
@@ -36,7 +38,10 @@ import { RouterModule } from '@angular/router';
     PerfilComponent,
     ListaUsuariosComponent,
     RegistroUsuarioComponent,
-    TopNavbarComponent
+    TopNavbarComponent,
+    RegistroEstilistaComponent,
+    ListaEstilistasComponent,
+    
   ],
   imports: [
     BrowserModule,
@@ -46,6 +51,8 @@ import { RouterModule } from '@angular/router';
      NgbModule,
      RouterModule,
      BrowserModule,
+     FormsModule,
+     ReactiveFormsModule,
      AgmCoreModule.forRoot({
        apiKey: 'AIzaSyDNOu2JQ001PxZY-GVwFvVou0_6h_Sj-14'
      })

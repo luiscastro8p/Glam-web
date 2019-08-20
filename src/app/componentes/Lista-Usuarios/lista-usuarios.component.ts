@@ -26,7 +26,7 @@ export class ListaUsuariosComponent implements OnInit  {
   constructor ( private RegistroUsuarioService: RegistroUsuarioService,private modal:NgbModal,config:NgbModalConfig) { }
 
   abrirmodal(content){
-    console.log("error");
+    
     this.modal.open(content);
     
   }
